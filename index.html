@@ -237,7 +237,7 @@ button { font: inherit; color: inherit; }
 .panel h3 { font-size: 15.5px; margin: 16px 0 8px; font-family: var(--f-body); font-weight: 600; }
 .panel p.hint { font-size: 13.5px; color: var(--ink-3); margin: 0 0 10px; }
 label.f { display: block; font-size: 13px; color: var(--ink-2); margin-bottom: 4px; font-weight: 500; }
-input[type=text], input[type=number], select, textarea { font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 6px 9px; width: 100%; min-width: 0; }
+input[type=text], input[type=search], input[type=number], select, textarea { font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 6px 9px; width: 100%; min-width: 0; }
 textarea { font-family: var(--f-mono); font-size: 12.8px; line-height: 1.5; resize: vertical; }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -682,7 +682,7 @@ window.ND = (function () {
     <div class="how">
       <div><h3>Đọc và chép mã</h3><p>Mỗi khối mã có nút <b>Chép</b>. Dán vào script trong RStudio, chạy bằng Ctrl+Enter, so với kết quả mẫu ngay bên dưới khối mã.</p></div>
       <div><h3>Dùng đúng dữ liệu</h3><p>Lấy các tệp CSV ở mục <a href="#du-lieu">Dữ liệu</a>, đặt vào thư mục dự án RStudio. Kết quả của bạn sẽ khớp kết quả mẫu.</p></div>
-      <div><h3>Chạy R ngay trên trang</h3><p>Bản web trên GitHub Pages và bản offline (tệp HTML mở bằng Chrome hoặc Edge) có nút <b>Chạy</b> dùng webR: R thật trong trình duyệt, không cần cài đặt.</p></div>
+      <div><h3>Chạy R ngay trên trang</h3><p>Bản web <a href="https://phuongduycs.github.io/phong-lab-r-sem/">phuongduycs.github.io/phong-lab-r-sem</a> và bản offline (mở bằng Chrome hoặc Edge) có nút <b>Chạy</b> dùng webR: R thật trong trình duyệt, không cần cài đặt.</p></div>
     </div>
     <p class="env">Kết quả mẫu chạy ngày ${esc(env.ngay || '')} trên R ${esc(env.R || '')} với ${Object.entries(g).map(([k, v]) => `<code>${esc(k)} ${esc(v)}</code>`).join(' ')}. Bản khác có thể lệch ở chữ số thập phân cuối.</p>`;
     hopTim($('#timHome', main), false);
@@ -1572,7 +1572,7 @@ testOMF(fit, .R = 199, .seed = 2026)   # độ phù hợp toàn mô hình
     })().catch(e => {
       ready = null;
       failMsg = e.message === 'blocked'
-        ? 'Trang này đang mở trong khung artifact, nơi trình duyệt chặn tải R từ máy chủ ngoài. Kết quả mẫu bên dưới là kết quả thật đã chạy sẵn. Muốn chạy R ngay trên trang, mở bản offline (tệp R-SEM-Lab-offline.html) bằng Chrome hoặc Edge khi có mạng, hoặc chép mã sang RStudio.'
+        ? 'Trang này đang mở trong khung artifact, nơi trình duyệt chặn tải R từ máy chủ ngoài. Kết quả mẫu bên dưới là kết quả thật đã chạy sẵn. Muốn chạy R ngay trên trang, mở bản web https://phuongduycs.github.io/phong-lab-r-sem/ (hoặc bản offline) bằng Chrome hoặc Edge, hoặc chép mã sang RStudio.'
         : 'Không khởi động được R trong trình duyệt: ' + e.message + '. Kiểm tra mạng rồi thử lại, hoặc chép mã sang RStudio.';
       setState('failed', failMsg);
       throw e;
